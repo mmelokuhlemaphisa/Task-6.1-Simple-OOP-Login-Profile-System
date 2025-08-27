@@ -1,3 +1,10 @@
+let users = (this.currentUser =JSON.parse(localStorage.getItem("currentUser")) || null);;
+if (users) {
+  if (users.loggedIn && !window.location.href.includes("profile.html")) {
+    window.location.href = "profile.html";
+  }
+}
+
 class UserAuth {
   constructor() {
     this.users = JSON.parse(localStorage.getItem("users")) || [];
@@ -94,4 +101,3 @@ if (logoutBtn) {
     logoutBtn.addEventListener("click", () => auth.logout());
   }
 }
-
